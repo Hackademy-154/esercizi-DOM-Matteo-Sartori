@@ -28,6 +28,9 @@ let textArea = document.querySelector("#inputTextArea");
 let bottoneCrea = document.querySelector("#buttonCrea");
 
 bottoneCrea.addEventListener("click", () => {
+  let date = new Date();
+  let formatDate = date.toLocaleDateString();
+
   let nuovoDiv = document.createElement("div");
 
   if (titolo.value == "" || textArea.value == "") {
@@ -38,9 +41,10 @@ bottoneCrea.addEventListener("click", () => {
     nuovoDiv.innerHTML = `
     <h1>${titolo.value}</h1>
     <p>${textArea.value}</p>
+    <p>${formatDate}</p>
     `;
-    wrapper.appendChild(nuovoDiv);
     titolo.value = "";
     textArea.value = "";
   }
+  wrapper.appendChild(nuovoDiv);
 });
